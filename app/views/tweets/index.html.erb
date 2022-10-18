@@ -13,14 +13,12 @@
     </p>
 <% end %><br>
 
-<p><%= link_to 'ツイートする', '/tweets/new' %></p>
 
-<p>
 <% if session[:login_uid] %>
-  <%= link_to 'ログアウト', '/tops/logout' %>
+    <p><%= link_to 'ツイートする', '/tweets/new' %></p>
+    <p><%= link_to 'ログアウト', '/tops/logout' %></p>
 <% else %>
-  <%= link_to 'ログイン', '/tops/main' %>
+    <p><%= link_to 'ログイン', '/tops/main' %></p>
 <% end %>
-</p>
 
 <p><%= link_to 'ユーザー一覧',  '/users' %></p>

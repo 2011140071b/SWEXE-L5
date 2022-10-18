@@ -15,6 +15,6 @@ class TopsController < ApplicationController
 
   def logout
     session[:login_uid] = nil
-    render 'login_form'
+    redirect_to root_path
   end
 end
