@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/new'
-  get 'users/create'
-  get 'users/destroy'
+  get 'likes/create'
+  get 'likes/destroy'
   resources :users
-  root 'users#index'
+  resources :tweets
+  resources :likes
+  get 'tops/main'
+  post 'tops/login'
+  get 'tops/logout'
+  root 'tweets#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

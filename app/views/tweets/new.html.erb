@@ -1,0 +1,4 @@
+<%= form_for @tweet, url: {action: :create} do |f| %>
+    <%= f.text_area :message, size: "20x7" %><br>
+    <%= f.submit 'ツイート' %>
+<% end %>
