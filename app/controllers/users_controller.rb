@@ -8,16 +8,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    uid = params[:user][:uid]
-    if !User.find_by(uid: uid)
-      @user = User.new(uid: uid, pass: BCrypt::Password.create(params[:user][:pass]))
-      @user.save
+    @user = User.new(
+      uid: params[:user][:uid],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation])
+    if @user.save
       redirect_to users_path
     else
-      flash[:ex_same_user] = 'このユーザー名は使えません。'
-      redirect_to new_user_path
+      render 'new'
     end
-    
   end
 
   def destroy
